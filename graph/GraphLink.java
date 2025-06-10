@@ -8,6 +8,10 @@ public class GraphLink<E> {
     }
 
     public void insertVertex(E data){
+
+    }
+
+    public void insertEdge(E verOri, E verDes){
         
     }
 }
