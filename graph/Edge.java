@@ -20,5 +20,9 @@ public class Edge<E> {
         }
         return false;
     }
-    
+
+    public String toString(){
+        if (this.weigth > -1) return refDest.getData() + " [" + this.weigth + "], ";
+        else return refDest.getData() + " ,";
+    }
 }
