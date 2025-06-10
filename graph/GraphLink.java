@@ -12,6 +12,10 @@ public class GraphLink<E> {
     }
 
     public void insertEdge(E verOri, E verDes){
-        
+
+    }
+
+    public String toString(){
+        return this.listVertex.toString();
     }
 }
