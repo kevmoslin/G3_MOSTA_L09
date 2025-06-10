@@ -16,7 +16,27 @@ public class GraphLink<E> {
     }
 
     public void insertEdge(E verOri, E verDes){
+        Vertex<E> vOri = null;
+        Vertex<E> vDes = null;
 
+        for (Vertex<E> v : listVertex) {
+            if (v.getData().equals(verOri)) {
+                vOri = v;
+            }
+            if (v.getData().equals(verDes)) {
+                vDes = v;
+            }
+        }
+
+        if (vOri == null || vDes == null) return;
+
+        if (!vOri.listAdj.contains(new Edge<E>(vDes))) {
+            vOri.listAdj.add(new Edge<E>(vDes));
+        }
+
+        if (!vDes.listAdj.contains(new Edge<E>(vOri))) {
+            vDes.listAdj.add(new Edge<E>(vOri));
+        }
     }
 
     public boolean searchVertex(E data){
