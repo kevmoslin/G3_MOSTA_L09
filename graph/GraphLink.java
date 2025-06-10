@@ -67,7 +67,22 @@ public class GraphLink<E> {
     }
 
     public void removeVertex(E data){
+        Vertex<E> v = null;
 
+        for (Vertex<E> vertex : listVertex) {
+            if (vertex.getData().equals(data)) {
+                v = vertex;
+                break;
+            }
+        }
+
+        if (v == null) return;
+
+        for (Vertex<E> u : listVertex) {
+            u.listAdj.remove(new Edge<E>(v));
+        }
+
+        listVertex.remove(v);
     }
 
     public void removeEdge(E v, E z){
