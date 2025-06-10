@@ -13,5 +13,12 @@ public class Edge<E> {
         this.weigth = weigth;
     }
 
+    public boolean equals(Object o){
+        if (o instanceof Edge<?>) {
+            Edge<E> e = (Edge<E>)o;
+            return this.refDest.equals(e.refDest);
+        }
+        return false;
+    }
     
 }
