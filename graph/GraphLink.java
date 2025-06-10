@@ -1,5 +1,13 @@
 package graph;
 
-public class GraphLink {
-    
+public class GraphLink<E> {
+    protected ListLinked<Vertex<E>> listVertex;
+
+    public GraphLink() {
+        listVertex = new ListLinked<Vertex<E>>();
+    }
+
+    public void insertVertex(E data){
+        
+    }
 }
