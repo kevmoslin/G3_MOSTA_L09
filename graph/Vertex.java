@@ -1,5 +1,7 @@
 package graph;
 
+import listlinked.ListLinked;
+
 public class Vertex<E> {
     private E data;
     protected ListLinked<Edge<E>> listAdj;

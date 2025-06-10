@@ -1,5 +1,7 @@
 package graph;
 
+import listlinked.ListLinked;
+
 public class GraphLink<E> {
     protected ListLinked<Vertex<E>> listVertex;
 
