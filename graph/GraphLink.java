@@ -104,6 +104,13 @@ public class GraphLink<E> {
         Vertex<E> origin = null;
 
         for (Vertex<E> v : listVertex){
+            if (v.getData().equals(start)) {
+                origin = v;
+                break;
+            }
+        }
+
+        if (origin == null) {
             
         }
     }
