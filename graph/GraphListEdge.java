@@ -19,7 +19,17 @@ public class GraphListEdge<V, E> {
     }
 
     public void insertEdge(V v1, V v2){
+        if (searchEdge(v1, v2)) {
+            return;
+        }
 
+        VertexObj<V, E> vert1 = getVertex(v1);
+        VertexObj<V, E> vert2 = getVertex(v2);
+
+        if (vert1 != null && vert2 != null) {
+            EdgeObj<V, E> newEdge = new EdgeObj<>(vert1, vert2, null, secEdge.size());
+            secEdge.add(newEdge);
+        }
     }
 
     public boolean searchVertex(V info){
