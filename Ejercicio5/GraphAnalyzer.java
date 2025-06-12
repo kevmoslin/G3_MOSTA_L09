@@ -58,6 +58,12 @@ public class GraphAnalyzer<E> {
     }
 
     public boolean completo(){
-
+        int n = graph.listVertex.size();
+        for (Vertex<E> v : graph.listVertex){
+            if (v.listAdj.size() != n - 1) {
+                return false;
+            }
+        }
+        return true;
     }
 }
