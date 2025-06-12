@@ -3,6 +3,7 @@ package graph;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 import java.util.HashMap;
 import java.util.Map;
 import listlinked.ListLinked;
@@ -219,8 +220,21 @@ public class GraphLink<E> {
         return null;
     }
 
-    public void insertEdgeWeight(E v, E z, int w){
+    public void insertEdgeWeight(E v, E z, int w) {
+        if (!searchVertex(v) || !searchVertex(z)) {
+            return;
+        }
 
+        Vertex<E> vertV = getVertex(v);
+        Vertex<E> vertZ = getVertex(z);
+
+        if (!vertV.listAdj.contains(new Edge<>(vertZ))) {
+            vertV.listAdj.add(new Edge<>(vertZ, w));
+        }
+
+        if (!vertZ.listAdj.contains(new Edge<>(vertV))) {
+            vertZ.listAdj.add(new Edge<>(vertV, w));
+        }
     }
 
     public ArrayList<E> shortPath(E start, E end){
