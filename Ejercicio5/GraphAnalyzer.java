@@ -30,11 +30,31 @@ public class GraphAnalyzer<E> {
     }
 
     public boolean ciclo(){
-
+        for (Vertex<E> v : graph.listVertex){
+            if (v.listAdj.size() != 2) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean rueda(){
+        int n = graph.listVertex.size();
+        int centerCount = 0;
+        int contadorRuedas = 0;
 
+        for (Vertex<E> v : graph.listVertex){
+            int grado = v.listAdj.size();
+            if (grado == n -1) {
+                centerCount++;
+            } else if (grado == 3) {
+                contadorRuedas++;
+            } else{
+                return false;
+            }
+        }
+
+        
     }
 
     public boolean completo(){
