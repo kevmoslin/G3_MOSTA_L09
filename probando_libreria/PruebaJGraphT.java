@@ -1,6 +1,7 @@
 package probando_libreria;
 
 import org.jgrapht.*;
+import org.jgrapht.alg.shortestpath.DijkstraManyToManyShortestPaths;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
@@ -20,6 +21,9 @@ public class PruebaJGraphT {
 
         System.out.println("Ciudades: " + mapaRutas.vertexSet());
         System.out.println("Rutas: " + mapaRutas.edgeSet());
+
+        DijkstraManyToManyShortestPaths<String, DefaultWeightedEdge> dijkstra = new DijkstraManyToManyShortestPaths<>(mapaRutas);
+        var rutaCorta = dijkstra.getPath("Lima", "Ancash");
 
         
     }
