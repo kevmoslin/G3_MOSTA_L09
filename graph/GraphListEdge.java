@@ -31,5 +31,12 @@ public class GraphListEdge<V, E> {
 
     }
 
-    
+    private VertexObj<V, E> getVertex(V info){
+        for (VertexObj<V, E> v : secVertex){
+            if (v.info.equals(info)) {
+                return v;
+            }
+        }
+    }
+
 }
