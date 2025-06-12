@@ -103,6 +103,10 @@ public class GraphLink<E> {
     public void dfs(E start){
 
     }
+    
+    private void dfsRecursive(Vertex<E> current, ListLinked<Vertex<E>> visited){
+        
+    }
 
     public String toString(){
         return this.listVertex.toString();
