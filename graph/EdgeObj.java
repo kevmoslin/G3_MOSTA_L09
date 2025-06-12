@@ -29,5 +29,7 @@ public class EdgeObj<V, E> {
         return position;
     }
 
-    
+    public String toString(){
+        return "(" + endVertex1 + " -- " + info + " -- " + endVertex2 + ")";
+    }
 }
