@@ -17,5 +17,7 @@ public class VertexObj<V, E> {
         return position;
     }
 
-    
+    public String toString(){
+        return info.toString();
+    }
 }
