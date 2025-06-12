@@ -54,7 +54,7 @@ public class GraphAnalyzer<E> {
             }
         }
 
-        
+        return centerCount == 1 && contadorRuedas == n-1;
     }
 
     public boolean completo(){
