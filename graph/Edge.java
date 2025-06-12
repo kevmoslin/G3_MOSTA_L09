@@ -5,7 +5,11 @@ public class Edge<E> {
     private int weigth;
 
     public Vertex<E> getRefDest(){
-        return this.refDest;
+        return refDest;
+    }
+
+    public int weigth(){
+        return weigth;
     }
 
     public Edge(Vertex<E> refDest){
