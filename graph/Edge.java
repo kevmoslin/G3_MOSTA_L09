@@ -4,6 +4,10 @@ public class Edge<E> {
     private Vertex<E> refDest;
     private int weigth;
 
+    public Vertex<E> getRefDest(){
+        return this.refDest;
+    }
+
     public Edge(Vertex<E> refDest){
         this(refDest,-1);
     }

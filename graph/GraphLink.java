@@ -105,7 +105,15 @@ public class GraphLink<E> {
     }
     
     private void dfsRecursive(Vertex<E> current, ListLinked<Vertex<E>> visited){
-        
+        visited.add(current);
+        System.out.println(current.getData() + " ");
+
+        for (Edge<E> edge : current.listAdj){
+            Vertex<E> neighbor = edge.refDest;
+            if (!visited.contains(neighbor)) {
+                dfsRecursive(neighbor, visited);
+            }
+        }
     }
 
     public String toString(){
