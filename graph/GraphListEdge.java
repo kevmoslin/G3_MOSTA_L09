@@ -63,6 +63,7 @@ public class GraphListEdge<V, E> {
                 return v;
             }
         }
+        return null;
     }
 
 }
