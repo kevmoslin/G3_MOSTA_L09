@@ -9,5 +9,13 @@ public class VertexObj<V, E> {
         this.position = position;
     }
 
+    public V getInfo(){
+        return info;
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
     
 }
