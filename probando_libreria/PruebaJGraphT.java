@@ -25,6 +25,11 @@ public class PruebaJGraphT {
         DijkstraManyToManyShortestPaths<String, DefaultWeightedEdge> dijkstra = new DijkstraManyToManyShortestPaths<>(mapaRutas);
         var rutaCorta = dijkstra.getPath("Lima", "Ancash");
 
-        
+        if (rutaCorta != null) {
+            System.out.println("Ruta mas corta de Lima a Ancash: " + rutaCorta.getVertexList());
+            System.out.println("Distancia total: " + rutaCorta.getWeight() + "km");
+        } else {
+            System.out.println("No hay ruta disponible.");
+        }
     }
 }
