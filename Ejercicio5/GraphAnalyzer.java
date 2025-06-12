@@ -104,7 +104,16 @@ public class GraphAnalyzer<E> {
     }
 
     public String representacionListaAdyacencia(){
-
+        StringBuilder sb = new StringBuilder();
+        for (Vertex<E> v : graph.listVertex) {
+            sb.append(v.getData()).append(": ");
+            List<String> adyacentes = new ArrayList<>();
+            for (Edge<E> e : v.listAdj) {
+                adyacentes.add(e.getRefDest().getData().toString());
+            }
+            sb.append(String.join(", ", adyacentes)).append("\n");
+        }
+        return sb.toString();
     }
 
     public String representacionMatrizAdyacencia(){
