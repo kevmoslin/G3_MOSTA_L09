@@ -12,5 +12,8 @@ public class Main {
         grafo.insertEdge("A", "B");
         grafo.insertEdge("A", "C");
         grafo.insertEdge("B", "D");
+
+        System.out.println("¿Existe el vertice A? " + grafo.searchVertex("A"));
+        System.out.println("¿Existe el vertice E? " + grafo.searchVertex("E"));
     }
 }
