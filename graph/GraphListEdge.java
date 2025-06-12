@@ -54,7 +54,35 @@ public class GraphListEdge<V, E> {
     }
 
     public void bfs(V startInfo){
+        VertexObj<V, E> start = getVertex(startInfo);
+        if (start == null) {
+            return;
+        }
 
+        Set<VertexObj<V, E>> visited = new HashSet<>();
+        Queue<VertexObj<V, E>> queue = new LinkedList<>();
+
+        visited.add(start);
+        queue.offer(start);
+
+        while (!queue.isEmpty()) {
+            VertexObj<V, E> current = queue.poll();
+            System.out.println(current.info);
+
+            for (EdgeObj<V, E> edge : secEdge){
+                VertexObj<V, E> neighbor = null;
+                if (edge.endVertex1.equals(current)) {
+                    neighbor = edge.endVertex2;
+                } else if (edge.endVertex2.equals(current)) {
+                    neighbor = edge.endVertex1;
+                }
+
+                if (neighbor != null && !visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    queue.offer(neighbor);
+                }
+            }
+        }
     }
 
     private VertexObj<V, E> getVertex(V info){
