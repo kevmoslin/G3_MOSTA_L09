@@ -15,5 +15,8 @@ public class Main {
 
         System.out.println("¿Existe el vertice A? " + grafo.searchVertex("A"));
         System.out.println("¿Existe el vertice E? " + grafo.searchVertex("E"));
+
+        System.out.println("¿Existe el arista A-B? " + grafo.searchEdge("A", "B"));
+        System.out.println("¿Existe el arista C-D? " + grafo.searchEdge("C", "D"));
     }
 }
