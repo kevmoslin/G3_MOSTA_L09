@@ -337,7 +337,7 @@ public class GraphLink<E> {
 
             for (Edge<E> edge : current.listAdj) {
                 Vertex<E> neighbor = edge.getRefDest();
-                int newDist = dist.get(current) + edge.getWeight();
+                int newDist = dist.get(current) + edge.getWeigth();
 
                 if (newDist < dist.get(neighbor)) {
                     dist.put(neighbor, newDist);
