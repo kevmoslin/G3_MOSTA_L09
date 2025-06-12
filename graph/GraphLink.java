@@ -1,5 +1,7 @@
 package graph;
 
+import java.util.ArrayList;
+
 import listlinked.ListLinked;
 
 public class GraphLink<E> {
@@ -128,6 +130,30 @@ public class GraphLink<E> {
                 dfsRecursive(neighbor, visited);
             }
         }
+    }
+
+    public void bfs(E strart){
+
+    }
+
+    public ArrayList<E> bfsPath(E start, E end){
+
+    }
+
+    public void insertEdgeWeight(E v, E z, int w){
+
+    }
+
+    public ArrayList<E> shortPath(E start, E end){
+
+    }
+
+    public boolean isConexo(){
+
+    }
+
+    public Stack<E> dijkstra(E start, E end){
+        
     }
 
     public String toString(){
