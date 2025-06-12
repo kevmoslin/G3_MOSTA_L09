@@ -134,8 +134,21 @@ public class GraphLink<E> {
         }
     }
 
+    private Vertex<E> geVertex(E data){
+        for (Vertex<E> v : listVertex){
+            if (v.getData().equals(data)) {
+                return v;
+            }
+        }
+        return null;
+    }
+
     public void bfs(E start){
-        Vertex<E> origin = searchVertex(start);
+        if (!searchVertex(start)) {
+            return;
+        }
+
+        Vertex<E> origin = geVertex(start);
         if (origin == null) {
             return;
         }
