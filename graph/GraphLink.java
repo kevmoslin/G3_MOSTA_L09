@@ -101,7 +101,11 @@ public class GraphLink<E> {
     }
 
     public void dfs(E start){
+        Vertex<E> origin = null;
 
+        for (Vertex<E> v : listVertex){
+            
+        }
     }
     
     private void dfsRecursive(Vertex<E> current, ListLinked<Vertex<E>> visited){
