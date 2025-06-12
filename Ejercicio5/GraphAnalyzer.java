@@ -74,4 +74,16 @@ public class GraphAnalyzer<E> {
         if (camino())     return "Camino (P" + graph.listVertex.size() + ")";
         return "Desconocido";
     }
+
+    public String representacionFormal(){
+
+    }
+
+    public String representacionListaAdyacencia(){
+
+    }
+
+    public String representacionMatrizAdyacencia(){
+        
+    }
 }

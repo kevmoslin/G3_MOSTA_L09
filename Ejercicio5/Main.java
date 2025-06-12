@@ -10,6 +10,8 @@ public class Main {
         grafo.insertEdge("A", "B");
         grafo.insertEdge("B", "C");
 
-        
+        GraphAnalyzer<String> analizador = new GraphAnalyzer<>(grafo);
+        System.out.println("Tipo de grafo: " + analizador.identificandoGrafo());
+        System.out.println("Grado de B: " + analizador.grado("B"));
     }
 }
