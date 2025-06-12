@@ -134,7 +134,7 @@ public class GraphLink<E> {
         }
     }
 
-    private Vertex<E> geVertex(E data){
+    private Vertex<E> getVertex(E data){
         for (Vertex<E> v : listVertex){
             if (v.getData().equals(data)) {
                 return v;
@@ -148,7 +148,7 @@ public class GraphLink<E> {
             return;
         }
 
-        Vertex<E> origin = geVertex(start);
+        Vertex<E> origin = getVertex(start);
         if (origin == null) {
             return;
         }
@@ -175,7 +175,14 @@ public class GraphLink<E> {
     }
 
     public ArrayList<E> bfsPath(E start, E end){
+        if (!searchVertex(start) || !searchVertex(end)) {
+            return null;
+        }
 
+        Vertex<E> origin = getVertex(start);
+        Vertex<E> target = getVertex(end);
+
+        
     }
 
     public void insertEdgeWeight(E v, E z, int w){
