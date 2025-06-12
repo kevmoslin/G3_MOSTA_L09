@@ -18,6 +18,9 @@ public class PruebaJGraphT {
         mapaRutas.setEdgeWeight(mapaRutas.addEdge("Arequipa", "Ancash"), 500);
         mapaRutas.setEdgeWeight(mapaRutas.addEdge("Trujillo", "Lima"), 560);
 
+        System.out.println("Ciudades: " + mapaRutas.vertexSet());
+        System.out.println("Rutas: " + mapaRutas.edgeSet());
+
         
     }
 }
