@@ -237,9 +237,50 @@ public class GraphLink<E> {
         }
     }
 
-    public ArrayList<E> shortPath(E start, E end){
+    public ArrayList<E> shortPath(E start, E end) {
+        if (!searchVertex(start) || !searchVertex(end)) {
+            return null;
+        }
 
+        Vertex<E> origin = getVertex(start);
+        Vertex<E> target = getVertex(end);
+
+        Map<Vertex<E>, Vertex<E>> parent = new HashMap<>();
+        Queue<Vertex<E>> queue = new LinkedList<>();
+        ListLinked<Vertex<E>> visited = new ListLinked<>();
+
+        visited.add(origin);
+        queue.offer(origin);
+        parent.put(origin, null);
+
+        while (!queue.isEmpty()) {
+            Vertex<E> current = queue.poll();
+            if (current.equals(target)) {
+                break;
+            }
+
+            for (Edge<E> edge : current.listAdj) {
+                Vertex<E> neighbor = edge.getRefDest();
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    queue.offer(neighbor);
+                    parent.put(neighbor, current);
+                }
+            }
+        }
+
+        ArrayList<E> path = new ArrayList<>();
+        for (Vertex<E> at = target; at != null; at = parent.get(at)) {
+            path.add(0, at.getData());
+        }
+
+        if (!path.isEmpty() && path.get(0).equals(start)) {
+            return path;
+        }
+
+        return null;
     }
+
 
     public boolean isConexo(){
 
