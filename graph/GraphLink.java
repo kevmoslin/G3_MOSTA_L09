@@ -1,6 +1,8 @@
 package graph;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import listlinked.ListLinked;
 
@@ -132,8 +134,31 @@ public class GraphLink<E> {
         }
     }
 
-    public void bfs(E strart){
+    public void bfs(E start){
+        Vertex<E> origin = searchVertex(start);
+        if (origin == null) {
+            return;
+        }
 
+        ListLinked<Vertex<E>> visited = new ListLinked<>();
+        Queue<Vertex<E>> queue = new LinkedList<>();
+
+        visited.add(origin);
+        queue.offer(origin);
+
+        while (!queue.isEmpty()) {
+            Vertex<E> current = queue.poll();
+            System.out.println(current.getData() + " ");
+
+            for (Edge<E> edge : current.listAdj){
+                Vertex<E> neighbor = edge.getRefDest();
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    queue.offer(neighbor);
+                }
+            }
+        }
+        System.out.println();
     }
 
     public ArrayList<E> bfsPath(E start, E end){
@@ -153,7 +178,7 @@ public class GraphLink<E> {
     }
 
     public Stack<E> dijkstra(E start, E end){
-        
+
     }
 
     public String toString(){
