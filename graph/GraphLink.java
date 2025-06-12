@@ -111,8 +111,11 @@ public class GraphLink<E> {
         }
 
         if (origin == null) {
-            
+            return;
         }
+
+        ListLinked<Vertex<E>> visited = new ListLinked<>();
+        dfsRecursive(origin, visited); 
     }
     
     private void dfsRecursive(Vertex<E> current, ListLinked<Vertex<E>> visited){
