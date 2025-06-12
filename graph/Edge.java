@@ -8,7 +8,7 @@ public class Edge<E> {
         return refDest;
     }
 
-    public int weigth(){
+    public int getWeigth(){
         return weigth;
     }
 
