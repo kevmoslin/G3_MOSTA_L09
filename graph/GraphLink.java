@@ -109,7 +109,7 @@ public class GraphLink<E> {
         System.out.println(current.getData() + " ");
 
         for (Edge<E> edge : current.listAdj){
-            Vertex<E> neighbor = edge.refDest;
+            Vertex<E> neighbor = edge.getRefDest();
             if (!visited.contains(neighbor)) {
                 dfsRecursive(neighbor, visited);
             }
