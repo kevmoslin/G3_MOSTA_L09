@@ -9,5 +9,7 @@ public class Main {
         grafo.insertVertex("C");
         grafo.insertEdge("A", "B");
         grafo.insertEdge("B", "C");
+
+        
     }
 }

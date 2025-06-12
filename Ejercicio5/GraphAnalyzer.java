@@ -66,4 +66,8 @@ public class GraphAnalyzer<E> {
         }
         return true;
     }
+
+    public String identificandoGrafo(){
+        
+    }
 }
