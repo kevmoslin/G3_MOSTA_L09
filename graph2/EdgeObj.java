@@ -1,4 +1,4 @@
-package graph;
+package graph2;
 
 public class EdgeObj<V, E> {
     protected E info;

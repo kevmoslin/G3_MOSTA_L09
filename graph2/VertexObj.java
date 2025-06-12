@@ -1,4 +1,4 @@
-package graph;
+package graph2;
 
 public class VertexObj<V, E> {
     protected V info;
