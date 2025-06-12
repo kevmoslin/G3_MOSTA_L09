@@ -1,5 +1,8 @@
 package Ejercicio5;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GraphAnalyzer<E> {
     private GraphLink<E> graph;
 
@@ -76,7 +79,28 @@ public class GraphAnalyzer<E> {
     }
 
     public String representacionFormal(){
-
+        StringBuilder sb = new StringBuilder();
+        sb.append("V = {");
+        for (int i = 0; i < graph.listVertex.size(); i++) {
+            sb.append(graph.listVertex.get(i).getData());
+            if (i < graph.listVertex.size() - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("}\nE = {");
+        List<String> aristas = new ArrayList<>();
+        for (Vertex<E> v : graph.listVertex) {
+            for (Edge<E> e : v.listAdj) {
+                Vertex<E> dest = e.getRefDest();
+                String a = "{" + v.getData() + "," + dest.getData() + "}";
+                String aInversa = "{" + dest.getData() + "," + v.getData() + "}";
+                if (!aristas.contains(aInversa)) {
+                    aristas.add(a);
+                }
+            }
+        }
+        sb.append(String.join(", ", aristas)).append("}");
+        return sb.toString();
     }
 
     public String representacionListaAdyacencia(){
@@ -84,6 +108,6 @@ public class GraphAnalyzer<E> {
     }
 
     public String representacionMatrizAdyacencia(){
-        
+
     }
 }
