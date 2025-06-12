@@ -12,4 +12,22 @@ public class EdgeObj<V, E> {
         this.info = info;
         this.position = position;
     }
+
+    public VertexObj<V, E> getEndVertex1(){
+        return endVertex1;
+    }
+
+    public VertexObj<V, E> getEndVertex2(){
+        return endVertex2;
+    }
+
+    public E getInfo(){
+        return info;
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
+    
 }
