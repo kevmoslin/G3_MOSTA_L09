@@ -12,7 +12,10 @@ public class GraphListEdge<V, E> {
     }
 
     public void insertVertex(V info){
-
+        if (!searchVertex(info)) {
+            VertexObj<V, E> newVertex = new VertexObj<>(info, secVertex.size());
+            secVertex.add(newVertex);
+        }
     }
 
     public void insertEdge(V v1, V v2){
