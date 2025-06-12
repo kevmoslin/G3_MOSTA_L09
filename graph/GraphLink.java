@@ -282,9 +282,34 @@ public class GraphLink<E> {
     }
 
 
-    public boolean isConexo(){
+    public boolean isConexo() {
+        if (listVertex.size() == 0) {
+            return true;
+        }
 
+        Vertex<E> origin = listVertex.get(0);
+
+        ListLinked<Vertex<E>> visited = new ListLinked<>();
+        Queue<Vertex<E>> queue = new LinkedList<>();
+
+        visited.add(origin);
+        queue.offer(origin);
+
+        while (!queue.isEmpty()) {
+            Vertex<E> current = queue.poll();
+
+            for (Edge<E> edge : current.listAdj) {
+                Vertex<E> neighbor = edge.getRefDest();
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    queue.offer(neighbor);
+                }
+            }
+        }
+
+        return visited.size() == listVertex.size();
     }
+
 
     public Stack<E> dijkstra(E start, E end){
 
