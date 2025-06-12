@@ -18,5 +18,8 @@ public class Main {
 
         System.out.println("¿Existe el arista A-B? " + grafo.searchEdge("A", "B"));
         System.out.println("¿Existe el arista C-D? " + grafo.searchEdge("C", "D"));
+
+        System.out.println("Recorrido BFS desde A: ");
+        grafo.bfs("A");
     }
 }
