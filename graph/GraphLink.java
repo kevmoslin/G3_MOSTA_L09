@@ -6,6 +6,8 @@ import java.util.Queue;
 import java.util.Stack;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
+
 import listlinked.ListLinked;
 
 public class GraphLink<E> {
@@ -310,9 +312,50 @@ public class GraphLink<E> {
         return visited.size() == listVertex.size();
     }
 
+    public Stack<E> dijkstra(E start, E end) {
+        if (!searchVertex(start) || !searchVertex(end)) {
+            return null;
+        }
 
-    public Stack<E> dijkstra(E start, E end){
+        Vertex<E> origin = getVertex(start);
+        Vertex<E> target = getVertex(end);
 
+        Map<Vertex<E>, Integer> dist = new HashMap<>();
+        Map<Vertex<E>, Vertex<E>> prev = new HashMap<>();
+        PriorityQueue<Vertex<E>> queue = new PriorityQueue<>((a, b) -> dist.get(a) - dist.get(b));
+
+        for (Vertex<E> v : listVertex) {
+            dist.put(v, Integer.MAX_VALUE);
+            prev.put(v, null);
+        }
+
+        dist.put(origin, 0);
+        queue.offer(origin);
+
+        while (!queue.isEmpty()) {
+            Vertex<E> current = queue.poll();
+
+            for (Edge<E> edge : current.listAdj) {
+                Vertex<E> neighbor = edge.getRefDest();
+                int newDist = dist.get(current) + edge.getWeight();
+
+                if (newDist < dist.get(neighbor)) {
+                    dist.put(neighbor, newDist);
+                    prev.put(neighbor, current);
+                    queue.offer(neighbor);
+                }
+            }
+        }
+    
+        Stack<E> path = new Stack<>();
+        for (Vertex<E> at = target; at != null; at = prev.get(at)) {
+            path.push(at.getData());
+        }
+
+        if (!path.isEmpty() && path.peek().equals(end)) {
+            return path;
+        }
+        return null;
     }
 
     public String toString(){
