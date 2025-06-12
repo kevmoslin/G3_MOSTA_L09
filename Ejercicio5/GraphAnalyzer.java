@@ -68,6 +68,10 @@ public class GraphAnalyzer<E> {
     }
 
     public String identificandoGrafo(){
-        
+        if (completo()) return "Completo (K" + graph.listVertex.size() + ")";
+        if (rueda())    return "Rueda (W" + graph.listVertex.size() + ")";
+        if (ciclo())    return "Ciclo (C" + graph.listVertex.size() + ")";
+        if (camino())     return "Camino (P" + graph.listVertex.size() + ")";
+        return "Desconocido";
     }
 }
