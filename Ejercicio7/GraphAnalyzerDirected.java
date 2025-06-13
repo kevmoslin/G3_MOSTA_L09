@@ -30,4 +30,16 @@ public class GraphAnalyzerDirected<E> {
         if (vertex == null) return -1;
         return vertex.listAdj.size();
     }
+
+    public boolean isDirectedPath() {
+        int startNodes = 0, endNodes = 0;
+        for (Vertex<E> v : graph.listVertex) {
+            int out = getOutDegree(v.getData());
+            int in = getInDegree(v.getData());
+            if (out - in == 1) startNodes++;
+            else if (in - out == 1) endNodes++;
+            else if (in != out) return false;
+        }
+        return (startNodes == 1 && endNodes == 1) || (startNodes == 0 && endNodes == 0);
+    }
 }
