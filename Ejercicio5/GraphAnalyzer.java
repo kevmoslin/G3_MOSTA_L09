@@ -117,6 +117,44 @@ public class GraphAnalyzer<E> {
     }
 
     public String representacionMatrizAdyacencia(){
+        int n = graph.listVertex.size();
+        int[][] matriz = new int[n][n];
 
+        for (int i = 0; i < n; i++) {
+            Vertex<E> v = graph.listVertex.get(i);
+            for (Edge<E> e : v.listAdj) {
+                Vertex<E> dest = e.getRefDest();
+                int j = getIndex(dest);
+                if (j != -1) {
+                    matriz[i][j] = 1;
+                    matriz[j][i] = 1; 
+                }
+            }
+        }
+
+        StringBuilder sb = new StringBuilder("Matriz de Adyacencia:\n   ");
+        for (int i = 0; i < n; i++) {
+            sb.append(graph.listVertex.get(i).getData()).append(" ");
+        }
+        sb.append("\n");
+
+        for (int i = 0; i < n; i++) {
+            sb.append(graph.listVertex.get(i).getData()).append(" ");
+            for (int j = 0; j < n; j++) {
+                sb.append(" ").append(matriz[i][j]);
+            }
+            sb.append("\n");
+        }
+
+        return sb.toString();
+    }
+
+    private int getIndex(Vertex<E> vertex) {
+        int index = 0;
+        for (Vertex<E> v : graph.listVertex) {
+            if (v.equals(vertex)) return index;
+            index++;
+        }
+    return -1;
     }
 }
