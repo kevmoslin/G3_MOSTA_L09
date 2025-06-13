@@ -355,6 +355,14 @@ public class GraphLink<E> {
         return null;
     }
 
+    public int countEdges() {
+        int count = 0;
+        for (Vertex<E> vertex : listVertex) {
+            count += vertex.listAdj.size();
+        }
+        return count / 2;
+    }
+
     public String toString(){
         return this.listVertex.toString();
     }
