@@ -49,4 +49,31 @@ public class GraphAnalyzerDirected<E> {
         }
         return true;
     }
+
+    public boolean isDirectedWheel() {
+        int n = graph.listVertex.size();
+        for (Vertex<E> center : graph.listVertex) {
+            int out = getOutDegree(center.getData());
+            int in = getInDegree(center.getData());
+            if (out == n - 1 && in == 0) {
+                int cycleCount = 0;
+                for (Vertex<E> other : graph.listVertex) {
+                    if (!other.equals(center)) {
+                        int degOut = getOutDegree(other.getData());
+                        int degIn = getInDegree(other.getData());
+                        if (degIn == 1 && degOut == 1) cycleCount++;
+                    }
+                }
+                return cycleCount == n - 1;
+            }
+        }
+        return false;
+    }
+
+    public String identifyGraphTypeDirected() {
+        if (isDirectedCycle()) return "Ciclo dirigido";
+        if (isDirectedPath()) return "Camino dirigido";
+        if (isDirectedWheel()) return "Rueda dirigida";
+        return "Tipo desconocido";
+    }
 }
