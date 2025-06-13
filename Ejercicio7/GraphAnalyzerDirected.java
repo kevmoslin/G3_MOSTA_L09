@@ -24,4 +24,10 @@ public class GraphAnalyzerDirected<E> {
         }
         return inDegree;
     }
+
+    public int getOutDegree(E data) {
+        Vertex<E> vertex = graph.getVertex(data); // Usamos getVertex
+        if (vertex == null) return -1;
+        return vertex.listAdj.size();
+    }
 }
