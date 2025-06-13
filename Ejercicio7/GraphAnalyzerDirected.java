@@ -42,4 +42,11 @@ public class GraphAnalyzerDirected<E> {
         }
         return (startNodes == 1 && endNodes == 1) || (startNodes == 0 && endNodes == 0);
     }
+
+    public boolean isDirectedCycle() {
+        for (Vertex<E> v : graph.listVertex) {
+            if (getInDegree(v.getData()) != getOutDegree(v.getData())) return false;
+        }
+        return true;
+    }
 }
