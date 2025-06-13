@@ -95,6 +95,10 @@ public class ListLinked<E> implements Iterable<E> {
         return sb.toString();
     }
 
+    public boolean isEmpty() {
+        return this.size() == 0;
+    }
+
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {

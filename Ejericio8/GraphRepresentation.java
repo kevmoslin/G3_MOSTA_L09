@@ -21,4 +21,19 @@ public class GraphRepresentation<E> {
         }
         return sb.toString();
     }
+
+    public String adjacencyListRepresentation() {
+        StringBuilder sb = new StringBuilder();
+        for (Vertex<E> v : graph.listVertex) {
+            sb.append(v.getData()).append(": ");
+            for (Edge<E> edge : v.listAdj) {
+                sb.append(edge.getRefDest().getData()).append(", ");
+            }
+            if (!v.listAdj.isEmpty()) {
+                sb.setLength(sb.length() - 2); // Quitar ", " final
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
+    }
 }
