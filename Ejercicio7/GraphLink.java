@@ -137,11 +137,9 @@ public class GraphLink<E> {
         }
     }
 
-    private Vertex<E> getVertex(E data){
-        for (Vertex<E> v : listVertex){
-            if (v.getData().equals(data)) {
-                return v;
-            }
+    public Vertex<E> getVertex(E data) {
+        for (Vertex<E> v : listVertex) {
+            if (v.getData().equals(data)) return v;
         }
         return null;
     }
